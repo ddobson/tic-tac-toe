@@ -1,14 +1,19 @@
 'use strict';
 
+const newBoard = [null, null, null, null, null, null, null, null, null];
+
 const Game = function (board) {
   this.board = board;
   this.currentPlayer = 'x';
-  this.newBoard = [null, null, null, null, null, null, null, null, null];
   this.winningStates = [
                           [0, 1, 2], [3, 4, 5], [6, 7, 8],  //rows
                           [0, 3, 6], [1, 4, 7], [2, 5, 8],  //columns
                           [0, 4, 8], [2, 4, 6],             //diagonals
                         ];
+
+  this.boardFull = function () {
+    return !this.board.includes(null);
+  };
 
   this.getIndexes = function () {
     let indexes = [];
@@ -31,6 +36,10 @@ const Game = function (board) {
   this.checkWinner = function () {
     const indexes = this.getIndexes();
     let winner = null;
+
+    if (this.boardFull()) {
+      winner = 'tie';
+    }
 
     for (let i = 0; i < this.winningStates.length; i++) {
       const isWinner = this.compareArrays(indexes, this.winningStates[i]);
@@ -56,7 +65,7 @@ const Game = function (board) {
 
   this.reset = function () {
     this.currentPlayer = 'x';
-    this.board = this.newBoard;
+    this.board = newBoard;
     return this.board;
   };
 
