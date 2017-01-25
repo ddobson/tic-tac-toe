@@ -43,8 +43,23 @@ const Game = function (board) {
 
     return winner;
   };
+
+  this.switchTurn = function () {
+    if (this.playerTurn === 'x') {
+      this.playerTurn = 'o';
+    } else {
+      this.playerTurn = 'x';
+    }
+
+    return this.playerTurn;
+  };
+
 };
 
 module.exports = {
   Game,
 };
+
+// const tic = require('./assets/scripts/game/game.js');
+// const game = new tic.Game(['x','x',null,'o','o',null,null,null,null]);
+//
