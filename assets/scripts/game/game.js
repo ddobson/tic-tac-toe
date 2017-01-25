@@ -8,12 +8,12 @@ const winningStates = [
 
 const Game = function (board) {
   this.board = board;
-  this.playerTurn = 'x';
+  this.currentPlayer = 'x';
 
   this.getIndexes = function () {
     let indexes = [];
     for (let i = 0; i < this.board.length; i++) {
-      if (this.board[i] === this.playerTurn) {
+      if (this.board[i] === this.currentPlayer) {
         indexes.push(i);
       }
     }
@@ -36,7 +36,7 @@ const Game = function (board) {
       const isWinner = this.compareArrays(indexes, winningStates[i]);
 
       if (isWinner) {
-        winner = this.playerTurn;
+        winner = this.currentPlayer;
         break;
       }
     }
@@ -44,14 +44,14 @@ const Game = function (board) {
     return winner;
   };
 
-  this.switchTurn = function () {
-    if (this.playerTurn === 'x') {
-      this.playerTurn = 'o';
+  this.switchPlayer = function () {
+    if (this.currentPlayer === 'x') {
+      this.currentPlayer = 'o';
     } else {
-      this.playerTurn = 'x';
+      this.currentPlayer = 'x';
     }
 
-    return this.playerTurn;
+    return this.currentPlayer;
   };
 
 };
