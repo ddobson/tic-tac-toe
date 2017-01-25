@@ -13,23 +13,7 @@ const validMove = function (cell) {
   return false;
 };
 
-const makeMove = function (event) {
-  event.preventDefault();
-
-  const $cell = $('#' + this.id);
-  const indx = $cell.attr('id').slice(1);
-
-  if (validMove($cell)) {
-    game.board[indx] = game.currentPlayer;
-    $cell.html(game.currentPlayer);
-    console.log(game.board);
-  } else {
-    ui.invalidMove();
-    return;
-  }
-
-  const gameWinner = game.checkWinner();
-
+const handleWinner = function (gameWinner) {
   if (gameWinner) {
     switch (gameWinner) {
       case 'x':
@@ -46,6 +30,24 @@ const makeMove = function (event) {
   } else {
     game.switchPlayer();
   }
+};
+
+const makeMove = function (event) {
+  event.preventDefault();
+
+  const $cell = $('#' + this.id);
+  const indx = $cell.attr('id').slice(1);
+
+  if (validMove($cell)) {
+    game.board[indx] = game.currentPlayer;
+    $cell.html(game.currentPlayer);
+    console.log(game.board);
+  } else {
+    ui.invalidMove();
+    return;
+  }
+
+  handleWinner(game.checkWinner());
 
   return game;
 };
