@@ -28,8 +28,22 @@ const makeMove = function (event) {
     return;
   }
 
-  if (game.checkWinner()) {
-    console.log(game.currentPlayer + ' wins!');
+  const gameWinner = game.checkWinner();
+
+  if (gameWinner) {
+    switch (gameWinner) {
+      case 'x':
+        ui.gameWon(gameWinner);
+        break;
+      case 'o':
+        ui.gameWon(gameWinner);
+        break;
+      case 'tie':
+        ui.gameTied();
+        break;
+      default:
+
+    }
   } else {
     game.switchPlayer();
   }
