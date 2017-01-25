@@ -1,9 +1,8 @@
 'use strict';
 
-const newBoard = [null, null, null, null, null, null, null, null, null];
-
-const Game = function (board) {
-  this.board = board;
+const Game = function () {
+  this.newBoard = [null, null, null, null, null, null, null, null, null];
+  this.board = this.newBoard.slice();
   this.currentPlayer = 'x';
   this.winningStates = [
                           [0, 1, 2], [3, 4, 5], [6, 7, 8],  //rows
@@ -66,13 +65,12 @@ Game.prototype.switchPlayer = function () {
 
 Game.prototype.reset = function () {
   this.currentPlayer = 'x';
-  this.board = newBoard;
+  this.board = this.newBoard.slice();
   return this.board;
 };
 
 module.exports = {
   Game,
-  newBoard,
 };
 
 // const tic = require('./assets/scripts/game/game.js');

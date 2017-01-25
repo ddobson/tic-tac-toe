@@ -3,7 +3,7 @@
 const engine = require('./engine');
 const ui = require('./game-ui');
 
-const game = new engine.Game(engine.newBoard);
+const game = new engine.Game();
 
 const validMove = function (cell) {
   if (cell.html() === '') {
@@ -50,7 +50,13 @@ const makeMove = function (event) {
   return game;
 };
 
+const resetGame = function (event) {
+  event.preventDefault();
+  game.reset();
+  ui.resetGameUi();
+};
+
 module.exports = {
-  game,
   makeMove,
+  resetGame,
 };

@@ -39,9 +39,18 @@ const resetMessages = function () {
   $messageBar.html('');
 };
 
+const resetGameBoard = function () {
+  $('.cell').html('');
+};
+
+const resetGameUi = function () {
+  resetMessages();
+  resetGameBoard();
+};
+
 module.exports = {
   invalidMove,
   gameWon,
   gameTied,
-  resetMessages,
+  resetGameUi,
 };
