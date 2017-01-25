@@ -70,7 +70,6 @@ Game.prototype.reset = function () {
   return this.board;
 };
 
-
 module.exports = {
   Game,
   newBoard,
