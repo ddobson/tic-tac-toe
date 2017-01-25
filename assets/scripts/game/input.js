@@ -6,7 +6,7 @@ const ui = require('./game-ui');
 const game = new engine.Game(engine.newBoard);
 
 const validMove = function (cell) {
-  if (cell.html() === "") {
+  if (cell.html() === '') {
     return true;
   }
 
@@ -24,7 +24,7 @@ const makeMove = function (event) {
     $cell.html(game.currentPlayer);
     console.log(game.board);
   } else {
-    console.log('Choose an unclaimed cell');
+    ui.invalidMove();
     return;
   }
 
