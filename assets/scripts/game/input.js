@@ -42,7 +42,6 @@ const makeMove = function (event) {
         ui.gameTied();
         break;
       default:
-
     }
   } else {
     game.switchPlayer();
