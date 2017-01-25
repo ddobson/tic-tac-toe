@@ -36,11 +36,11 @@ const makeMove = function (event) {
   event.preventDefault();
 
   const $cell = $('#' + this.id);
-  const indx = $cell.attr('id').slice(1);
+  const indx = parseInt($cell.attr('id').slice(1));
 
   if (validMove($cell)) {
     game.board[indx] = game.currentPlayer;
-    $cell.html(game.currentPlayer);
+    ui.drawMove($cell, game.currentPlayer);
     console.log(game.board);
   } else {
     ui.invalidMove();

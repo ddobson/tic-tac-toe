@@ -1,6 +1,24 @@
 'use strict';
 
 const $messageBar = $('#message-bar');
+
+const resetMessages = function () {
+  $messageBar.html('');
+};
+
+const resetGameBoard = function () {
+  $('.cell').html('');
+};
+
+const resetGameUi = function () {
+  resetMessages();
+  resetGameBoard();
+};
+
+const drawMove = function (cell, token) {
+  cell.html(token);
+};
+
 const closeButton = '<button type="button" class="close" data-dismiss="alert" aria-label="Close">' +
                     '<span aria-hidden="true">' + '&times;' + '</span>' +
                     '</button>';
@@ -35,22 +53,10 @@ const gameTied = function () {
   $messageBar.append($message);
 };
 
-const resetMessages = function () {
-  $messageBar.html('');
-};
-
-const resetGameBoard = function () {
-  $('.cell').html('');
-};
-
-const resetGameUi = function () {
-  resetMessages();
-  resetGameBoard();
-};
-
 module.exports = {
-  invalidMove,
+  drawMove,
   gameWon,
   gameTied,
+  invalidMove,
   resetGameUi,
 };
