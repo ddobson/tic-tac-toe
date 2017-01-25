@@ -1,0 +1,10 @@
+.gameboard {
+  height: 375px;
+  margin: 40px auto;
+  width: 375px;
+}
+
+.cell {
+  border: 1px solid $black;
+  height: 33.33%;
+}
