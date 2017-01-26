@@ -4,6 +4,7 @@ const Game = function () {
   this.newBoard = [null, null, null, null, null, null, null, null, null];
   this.board = this.newBoard.slice();
   this.currentPlayer = 'x';
+  this.gameOver = false;
   this.winningStates = [
                           [0, 1, 2], [3, 4, 5], [6, 7, 8],  //rows
                           [0, 3, 6], [1, 4, 7], [2, 5, 8],  //columns
@@ -46,6 +47,7 @@ Game.prototype.checkWinner = function () {
 
     if (isWinner) {
       winner = this.currentPlayer;
+      this.gameOver = true;
       break;
     }
   }
@@ -65,6 +67,7 @@ Game.prototype.switchPlayer = function () {
 
 Game.prototype.reset = function () {
   this.currentPlayer = 'x';
+  this.gameOver = false;
   this.board = this.newBoard.slice();
   return this.board;
 };

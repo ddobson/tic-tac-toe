@@ -35,13 +35,16 @@ const handleWinner = function (gameWinner) {
 const makeMove = function (event) {
   event.preventDefault();
 
+  if (game.gameOver) {
+    return;
+  }
+
   const $cell = $('#' + this.id);
   const indx = parseInt($cell.attr('id').slice(1));
 
   if (validMove($cell)) {
     game.board[indx] = game.currentPlayer;
     ui.drawMove($cell, game.currentPlayer);
-    console.log(game.board);
   } else {
     ui.invalidMove();
     return;
