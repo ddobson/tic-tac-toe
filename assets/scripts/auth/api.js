@@ -19,6 +19,16 @@ const signIn = function (formData) {
   });
 };
 
+const signOut = function () {
+  return $.ajax({
+    url: config.apiOrigin + '/sign-out/' + store.user.id,
+    method: 'DELETE',
+    headers: {
+      Authorization: 'Token token=' + store.user.token,
+    },
+  });
+};
+
 const changePassword = function (formData) {
   return $.ajax({
     url: config.apiOrigin + '/change-password/' + store.user.id,
@@ -36,5 +46,6 @@ const changePassword = function (formData) {
 module.exports = {
   changePassword,
   signIn,
+  signOut,
   signUp,
 };

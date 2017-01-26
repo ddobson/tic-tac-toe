@@ -30,6 +30,14 @@ const handleSignIn = function (event) {
     .catch(ui.onError);
 };
 
+const handleSignOut = function () {
+  event.preventDefault();
+
+  api.signOut()
+    .then(ui.signOutSucess)
+    .catch(ui.onError);
+};
+
 const passwordReset = function (event) {
   event.preventDefault();
 
@@ -42,7 +50,7 @@ const passwordReset = function (event) {
 
 const onFormSubmit = function (event) {
 
-  const formType = this.name;
+  const formType = this.id;
 
   switch (formType) {
     case 'sign-up':
@@ -60,5 +68,6 @@ const onFormSubmit = function (event) {
 };
 
 module.exports = {
+  handleSignOut,
   onFormSubmit,
 };

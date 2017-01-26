@@ -10,6 +10,7 @@ $(() => {
   $('.cell').on('click', input.makeMove);
   $('#reset-game').on('click', input.resetGame);
   $('.auth-form').on('submit', authEvents.onFormSubmit);
+  $('#sign-out').on('click', authEvents.handleSignOut);
 });
 
 // use require with a reference to bundle the file and use it in this file
