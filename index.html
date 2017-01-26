@@ -1,20 +1,22 @@
 <!DOCTYPE html>
 <html>
-    <head>
-      <title>Example</title>
-      <meta name="viewport" content="width=device-width, initial-scale=1">
 
-      <!-- Do not add `link` tags unless you know what you are doing -->
-      <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+<head>
+  <title>Example</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 
-      <!-- Do not add `script` tags unless you know what you are doing -->
-      <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
-      <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
-    </head>
-    <body class="container-fluid">
-      <main class="row">
-        <div class="col-xs-12 col-md-4 scoreboard">
-          <form id="sign-up">
+  <!-- Do not add `link` tags unless you know what you are doing -->
+  <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+
+  <!-- Do not add `script` tags unless you know what you are doing -->
+  <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
+  <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
+</head>
+
+<body class="container-fluid">
+  <main class="row">
+    <div class="col-xs-12 col-md-4 scoreboard">
+      <form id="sign-up" class="auth-form" name="sign-up">
         <fieldset>
           <legend>Sign up!</legend>
           <label>
@@ -32,8 +34,7 @@
           <input type="submit" name="submit" value="Sign up!" class="btn btn-primary">
         </fieldset>
       </form>
-
-      <form id="sign-in">
+      <form id="sign-in" class="auth-form" name="sign-in">
         <fieldset>
           <legend>Sign In</legend>
           <label>
@@ -47,22 +48,23 @@
           <input type="submit" name="submit" value="Sign In" class="btn btn-primary">
         </fieldset>
       </form>
-          <button id="reset-game" class="btn btn-primary" type="button" name="button">Reset</button>
-        </div>
-        <div class="col-xs-12 col-md-8">
-          <div id="message-bar" class="messages"></div>
-          <div class="clearfix row gameboard">
-            <div id="c0" class="col-xs-4 cell"></div>
-            <div id="c1" class="col-xs-4 cell"></div>
-            <div id="c2" class="col-xs-4 cell"></div>
-            <div id="c3" class="col-xs-4 cell"></div>
-            <div id="c4" class="col-xs-4 cell"></div>
-            <div id="c5" class="col-xs-4 cell"></div>
-            <div id="c6" class="col-xs-4 cell"></div>
-            <div id="c7" class="col-xs-4 cell"></div>
-            <div id="c8" class="col-xs-4 cell"></div>
-          </div>
-        </div>
-      </main>
-    </body>
+      <button id="reset-game" class="btn btn-primary" type="button" name="button">Reset</button>
+    </div>
+    <div class="col-xs-12 col-md-8">
+      <div id="message-bar" class="messages"></div>
+      <div class="clearfix row gameboard">
+        <div id="c0" class="col-xs-4 cell"></div>
+        <div id="c1" class="col-xs-4 cell"></div>
+        <div id="c2" class="col-xs-4 cell"></div>
+        <div id="c3" class="col-xs-4 cell"></div>
+        <div id="c4" class="col-xs-4 cell"></div>
+        <div id="c5" class="col-xs-4 cell"></div>
+        <div id="c6" class="col-xs-4 cell"></div>
+        <div id="c7" class="col-xs-4 cell"></div>
+        <div id="c8" class="col-xs-4 cell"></div>
+      </div>
+    </div>
+  </main>
+</body>
+
 </html>

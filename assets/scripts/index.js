@@ -9,6 +9,7 @@ $(() => {
   setAPIOrigin(location, config);
   $('.cell').on('click', input.makeMove);
   $('#reset-game').on('click', input.resetGame);
+  $('.auth-form').on('submit', authEvents.onFormSubmit);
 });
 
 // use require with a reference to bundle the file and use it in this file
