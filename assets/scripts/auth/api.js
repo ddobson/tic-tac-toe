@@ -9,11 +9,20 @@ const signUp = function (formData) {
     data: formData,
   });
 };
-// Sign In
+
+const signIn = function (formData) {
+  return $.ajax({
+    url: config.apiOrigin + '/sign-in',
+    method: 'POST',
+    data: formData,
+  });
+};
+
 // Change Password
 // Create Game
 // Update game
 
 module.exports = {
+  signIn,
   signUp,
 };

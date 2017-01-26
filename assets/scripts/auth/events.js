@@ -5,14 +5,22 @@ const store = require('../store');
 const api = require('./api');
 const ui = require('./ui');
 
-const signUpEvent = function (event) {
+const handleSignUp = function (event) {
   event.preventDefault();
 
   const formData = getFormFields(event.target);
 
-  console.log(formData);
-
   api.signUp(formData)
+    .then(ui.signUpSucess)
+    .catch(ui.onError);
+};
+
+const handleSignIn = function (event) {
+  event.preventDefault();
+
+  const formData = getFormFields(event.target);
+
+  api.signIn(formData)
     .then((response) => {
       store.user = response.user;
       console.log(store.user);
@@ -28,7 +36,10 @@ const onFormSubmit = function (event) {
 
   switch (formType) {
     case 'sign-up':
-      signUpEvent(event);
+      handleSignUp(event);
+      break;
+    case 'sign-in':
+      handleSignIn(event);
       break;
     default:
       console.log('default action');
