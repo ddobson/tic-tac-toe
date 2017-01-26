@@ -1,6 +1,7 @@
 'use strict';
 
 const engine = require('./engine');
+const api = require('./game-api');
 const ui = require('./game-ui');
 
 const game = new engine.Game();
@@ -32,11 +33,19 @@ const handleWinner = function (gameWinner) {
   }
 };
 
+const handleGameCreation = function () {
+  api.createGame();
+};
+
 const makeMove = function (event) {
   event.preventDefault();
 
   if (game.gameOver) {
     return;
+  } else if (game.newGame()) {
+    handleGameCreation();
+  } else {
+    console.log('in progress');
   }
 
   const $cell = $('#' + this.id);

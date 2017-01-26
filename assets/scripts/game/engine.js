@@ -16,6 +16,10 @@ Game.prototype.boardFull = function () {
   return !this.board.includes(null);
 };
 
+Game.prototype.newGame = function () {
+  return this.board.every((e) => e === null);
+};
+
 Game.prototype.getIndexes = function () {
   let indexes = [];
   for (let i = 0; i < this.board.length; i++) {
