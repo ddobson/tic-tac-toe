@@ -282,3 +282,4 @@ bower.json
 /libpeerconnection.log
 npm-debug.log
 testem.log
+notes.md
