@@ -3,12 +3,12 @@
 const setAPIOrigin = require('../../lib/set-api-origin');
 const config = require('./config');
 const authEvents = require('./auth/events');
-const input = require('./game/input');
+const gameEvents = require('./game/game-events');
 
 $(() => {
   setAPIOrigin(location, config);
-  $('.cell').on('click', input.makeMove);
-  $('#reset-game').on('click', input.resetGame);
+  $('.cell').on('click', gameEvents.makeMove);
+  $('#reset-game').on('click', gameEvents.resetGame);
   $('.auth-form').on('submit', authEvents.onFormSubmit);
   $('#sign-out').on('click', authEvents.handleSignOut);
 });

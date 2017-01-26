@@ -1,8 +1,9 @@
 'use strict';
 
 const engine = require('./engine');
-const api = require('./game-api');
+const api = require('../api');
 const ui = require('./game-ui');
+const store = require('../store');
 
 const game = new engine.Game();
 
@@ -33,19 +34,20 @@ const handleWinner = function (gameWinner) {
   }
 };
 
-const handleGameCreation = function () {
-  api.createGame();
-};
-
 const makeMove = function (event) {
   event.preventDefault();
 
-  if (game.gameOver) {
+  if (!store.user){
+    ui.promptSignIn();
     return;
   } else if (game.newGame()) {
-    handleGameCreation();
-  } else {
-    console.log('in progress');
+    api.createGame()
+      .then((response) => {
+        store.games.push(response.game);
+        console.log(store.games);
+      });
+  } else if (game.gameOver) {
+    return;
   }
 
   const $cell = $('#' + this.id);

@@ -2,6 +2,10 @@
 
 const $messageBar = $('#message-bar');
 
+const promptSignIn = function () {
+  console.log('you must sign in');
+};
+
 const resetMessages = function () {
   $messageBar.html('');
 };
@@ -58,5 +62,6 @@ module.exports = {
   gameWon,
   gameTied,
   invalidMove,
+  promptSignIn,
   resetGameUi,
 };
