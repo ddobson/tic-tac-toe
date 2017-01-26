@@ -23,10 +23,20 @@ const handleSignIn = function (event) {
   api.signIn(formData)
     .then((response) => {
       store.user = response.user;
-      console.log(store.user);
+      console.log(store);
       return store.user;
     })
-    .then(ui.signUpSucess)
+    .then(ui.signInSucess)
+    .catch(ui.onError);
+};
+
+const passwordReset = function (event) {
+  event.preventDefault();
+
+  const formData = getFormFields(event.target);
+
+  api.changePassword(formData)
+    .then(ui.passwordResetSucess)
     .catch(ui.onError);
 };
 
@@ -40,6 +50,9 @@ const onFormSubmit = function (event) {
       break;
     case 'sign-in':
       handleSignIn(event);
+      break;
+    case 'change-password':
+      passwordReset(event);
       break;
     default:
       console.log('default action');

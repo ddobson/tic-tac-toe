@@ -48,6 +48,20 @@
           <input type="submit" name="submit" value="Sign In" class="btn btn-primary">
         </fieldset>
       </form>
+      <form id="change-password" class="auth-form" name="change-password">
+        <fieldset>
+          <legend>Reset Password</legend>
+          <label>
+            Old:
+            <input type="password" name="passwords[old]"/>
+          </label>
+          <label>
+            New:
+            <input type="password" name="passwords[new]"/>
+          </label>
+          <input type="submit" name="submit" value="Change Password" class="btn btn-primary">
+        </fieldset>
+      </form>
       <button id="reset-game" class="btn btn-primary" type="button" name="button">Reset</button>
     </div>
     <div class="col-xs-12 col-md-8">
