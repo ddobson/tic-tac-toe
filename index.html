@@ -32,8 +32,8 @@
 
         <ul class="nav navbar-nav navbar-right">
           <li class="dropdown">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Sign Up / Sign In <span class="caret"></span></a>
-            <ul class="dropdown-menu">
+            <a href="#" class="dropdown-id dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Sign Up / Sign In <span class="caret"></span></a>
+            <ul class="user-actions dropdown-menu">
               <li><a href="#" data-toggle="modal" data-target="#sign-up-modal">Sign Up</a></li>
               <li><a href="#" data-toggle="modal" data-target="#sign-in-modal">Sign In</a></li>
             </ul>
@@ -42,32 +42,16 @@
       </div>
       <!-- /.navbar-collapse -->
     </div>
-    <!-- /.container-fluid -->
   </nav>
   <main>
     <div class="row">
-      <div class="col-xs-12 col-md-4 scoreboard">
-        <form id="change-password" class="auth-form" name="change-password">
-          <fieldset>
-            <legend>Reset Password</legend>
-            <label>
-              Old:
-              <input type="password" name="passwords[old]"/>
-            </label>
-            <label>
-              New:
-              <input type="password" name="passwords[new]"/>
-            </label>
-            <input type="submit" name="change-password-btn" value="Change Password" class="btn btn-primary">
-          </fieldset>
-        </form>
-        <legend>Sign Out</legend>
-        <button id="sign-out" class="btn btn-primary" type="button" name="sign-out">Sign Out</button>
+      <div class="col-xs-12 col-md-5 scoreboard">
+        <div id="message-bar" class="messages"></div>
+        <!-- <button id="sign-out" class="btn btn-primary" type="button" name="sign-out">Sign Out</button> -->
         <button id="new-game" class="btn btn-primary" type="button" name="button">New Game</button>
         <button id="get-games" class="btn btn-primary" type="button" name="button">Get Games</button>
       </div>
-      <div class="col-xs-12 col-md-8">
-        <div id="message-bar" class="messages"></div>
+      <div class="col-xs-12 col-md-7">
         <div class="clearfix row gameboard">
         </div>
       </div>
@@ -79,7 +63,7 @@
       <div class="modal-content">
         <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-          <h4 class="modal-title" id="myModalLabel">Sign Up</h4>
+          <h4 class="modal-title" id="sign-up-label">Sign Up</h4>
         </div>
         <div class="modal-body">
           <form id="sign-up" class="auth-form" name="sign-up">
@@ -108,7 +92,7 @@
       <div class="modal-content">
         <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-          <h4 class="modal-title" id="myModalLabel">Sign Up</h4>
+          <h4 class="modal-title" id="sign-in-label">Sign In</h4>
         </div>
         <div class="modal-body">
           <form id="sign-in" class="auth-form" name="sign-in">
@@ -122,6 +106,31 @@
                 <input class="form-control" type="password" name="credentials[password]"/>
               </div>
               <input type="submit" name="sign-in-btn" value="Sign In" class="btn btn-primary">
+            </fieldset>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="modal fade" id="change-password-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title" id="change-password-label">Change Password</h4>
+        </div>
+        <div class="modal-body">
+          <form id="change-password" class="auth-form" name="sign-in">
+            <fieldset>
+              <div class="form-group">
+                <label>Old</label>
+                <input class="form-control" type="password" name="passwords[old]"/>
+              </div>
+              <div class="form-group">
+                <label>New</label>
+                <input class="form-control" type="password" name="passwords[new]"/>
+              </div>
+              <input type="submit" name="change-password-btn" value="Submit" class="btn btn-primary">
             </fieldset>
           </form>
         </div>

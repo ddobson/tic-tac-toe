@@ -4,6 +4,9 @@ $icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
 @import 'gameboard';
 
 .scoreboard {
-  border: 1px solid $black;
-  margin: 40px auto;
+  margin: 0 auto;
+}
+
+.scoreboard>button {
+  margin-right: 10px;
 }

@@ -5,7 +5,11 @@ const signUpSucess = function () {
 };
 
 const signInSucess = function () {
-  console.log('signed in');
+  $('.dropdown-id').html('Sign Out');
+
+  $('.user-actions')
+    .html('<li><a href="#" id="sign-out">Sign Out</a></li>')
+    .append('<li><a href="#" data-toggle="modal" data-target="#change-password-modal">Change Password</a></li>');
 };
 
 const signOutSucess = function () {

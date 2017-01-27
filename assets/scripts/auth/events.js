@@ -23,7 +23,6 @@ const handleSignIn = function (event) {
   api.signIn(formData)
     .then((response) => {
       store.user = response.user;
-      console.log(store);
       return store.user;
     })
     .then(ui.signInSucess)
@@ -63,7 +62,7 @@ const onFormSubmit = function (event) {
       passwordReset(event);
       break;
     default:
-      console.log('default action');
+      console.log('No matching form type');
   }
 };
 
