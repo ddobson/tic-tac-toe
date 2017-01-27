@@ -7,10 +7,10 @@ const gameEvents = require('./game/game-events');
 
 $(() => {
   setAPIOrigin(location, config);
-  $('.cell').on('click', gameEvents.makeMove);
-  $('#reset-game').on('click', gameEvents.resetGame);
+  $('#reset-game').on('click', gameEvents.newGame);
   $('.auth-form').on('submit', authEvents.onFormSubmit);
   $('#sign-out').on('click', authEvents.handleSignOut);
+  $('.gameboard').on('click', '.cell', gameEvents.makeMove);
 });
 
 // use require with a reference to bundle the file and use it in this file

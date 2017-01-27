@@ -46,11 +46,28 @@ const createGame = function () {
     method: 'POST',
     headers: {
       Authorization: 'Token token=' + store.user.token,
-    }
+    },
   });
 };
 
-// Update game
+const updateGame = function (indx, game) {
+  return $.ajax({
+    url: config.apiOrigin + '/games/' + store.game.id,
+    method: 'PATCH',
+    headers: {
+      Authorization: 'Token token=' + store.user.token,
+    },
+    data: {
+      game: {
+        cell: {
+          index: indx,
+          value: game.currentPlayer,
+        },
+        over: game.gameOver,
+      },
+    },
+  });
+};
 
 module.exports = {
   changePassword,
@@ -58,4 +75,5 @@ module.exports = {
   signIn,
   signOut,
   signUp,
+  updateGame,
 };

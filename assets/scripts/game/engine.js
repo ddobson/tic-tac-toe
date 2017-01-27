@@ -16,9 +16,9 @@ Game.prototype.boardFull = function () {
   return !this.board.includes(null);
 };
 
-Game.prototype.newGame = function () {
-  return this.board.every((e) => e === null);
-};
+// Game.prototype.newGame = function () {
+//   return this.board.every((e) => e === null);
+// };
 
 Game.prototype.setMove = function (indx) {
   this.board[indx] = this.currentPlayer;
@@ -42,7 +42,7 @@ Game.prototype.compareArrays = function (playerSet, winSet) {
   });
 };
 
-Game.prototype.checkWinner = function (callback) {
+Game.prototype.checkWinner = function (indx, callback) {
   const indexes = this.getIndexes();
   let winner = null;
 
@@ -60,7 +60,7 @@ Game.prototype.checkWinner = function (callback) {
     }
   }
 
-  callback(winner);
+  callback(winner, indx);
 };
 
 Game.prototype.switchPlayer = function () {

@@ -16,24 +16,27 @@ const validMove = function (cell) {
 };
 
 const boardReady = function () {
-  if (!store.user){
+  if (!store.user) {
     ui.promptSignIn();
     return false;
-  } else
-  if (game.gameOver) {
+  } else if (game.gameOver) {
     return false;
-  } else if (game.newGame()) {
-    api.createGame()
-      .then((response) => {
-        store.games.push(response.game);
-        console.log(store.games);
-      });
   }
 
-    return true;
+  return true;
 };
 
-const handleWinner = function (gameWinner) {
+const updateGameServer = function (indx, currentGame) {
+  api.updateGame(indx, currentGame)
+    .then((response) => {
+      console.log(response.game);
+    });
+};
+
+const handleWinner = function (gameWinner, indx) {
+
+  updateGameServer(indx, game);
+
   if (gameWinner) {
     switch (gameWinner) {
       case 'x':
@@ -50,6 +53,7 @@ const handleWinner = function (gameWinner) {
   } else {
     game.switchPlayer();
   }
+
 };
 
 const makeMove = function (event) {
@@ -60,31 +64,34 @@ const makeMove = function (event) {
   const ready = boardReady();
   const valid = validMove($cell);
 
-  // const updateGameServer = api.updateGame;
-  // game.setMove(indx, updateGameServer)  <--use as a callback
-
   if (ready && valid) {
     game.setMove(indx);
     ui.drawMove($cell, game.currentPlayer);
   } else if (!valid) {
     ui.invalidMove();
+    console.log($cell.html());
     return;
   } else {
     return;
   }
 
-  game.checkWinner(handleWinner);
+  game.checkWinner(indx, handleWinner);
 
   return game;
 };
 
-const resetGame = function (event) {
+const newGame = function (event) {
   event.preventDefault();
   game.reset();
-  ui.resetGameUi();
+  ui.newGameUi();
+  api.createGame()
+    .then((response) => {
+      store.game = response.game;
+      console.log('create game:', store.game);
+    });
 };
 
 module.exports = {
   makeMove,
-  resetGame,
+  newGame,
 };

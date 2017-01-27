@@ -11,10 +11,15 @@ const resetMessages = function () {
 };
 
 const resetGameBoard = function () {
-  $('.cell').html('');
+  $('.gameboard').html('');
+
+  for (let i = 0; i < 9; i++) {
+    $('.gameboard')
+      .append('<div id="c' + i + '" class="col-xs-4 cell"></div>');
+  }
 };
 
-const resetGameUi = function () {
+const newGameUi = function () {
   resetMessages();
   resetGameBoard();
 };
@@ -63,5 +68,5 @@ module.exports = {
   gameTied,
   invalidMove,
   promptSignIn,
-  resetGameUi,
+  newGameUi,
 };
