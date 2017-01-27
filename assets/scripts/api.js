@@ -40,6 +40,16 @@ const changePassword = function (formData) {
   });
 };
 
+const gamesIndex = function () {
+  return $.ajax({
+    url: config.apiOrigin + '/games',
+    method: 'GET',
+    headers: {
+      Authorization: 'Token token=' + store.user.token,
+    },
+  });
+};
+
 const createGame = function () {
   return $.ajax({
     url: config.apiOrigin + '/games',
@@ -72,6 +82,7 @@ const updateGame = function (indx, game) {
 module.exports = {
   changePassword,
   createGame,
+  gamesIndex,
   signIn,
   signOut,
   signUp,

@@ -91,7 +91,15 @@ const newGame = function (event) {
     });
 };
 
+const getGames = function () {
+  api.gamesIndex()
+    .then((response) => {
+      ui.displayGames(response.games);
+    });
+};
+
 module.exports = {
+  getGames,
   makeMove,
   newGame,
 };

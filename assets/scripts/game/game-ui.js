@@ -24,6 +24,10 @@ const newGameUi = function () {
   resetGameBoard();
 };
 
+const displayGames = function (games) {
+  console.log(games);
+};
+
 const drawMove = function (cell, token) {
   cell.html(token);
 };
@@ -63,6 +67,7 @@ const gameTied = function () {
 };
 
 module.exports = {
+  displayGames,
   drawMove,
   gameWon,
   gameTied,
