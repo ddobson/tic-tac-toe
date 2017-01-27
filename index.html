@@ -14,65 +14,120 @@
 </head>
 
 <body class="container-fluid">
-  <main class="row">
-    <div class="col-xs-12 col-md-4 scoreboard">
-      <form id="sign-up" class="auth-form" name="sign-up">
-        <fieldset>
-          <legend>Sign up!</legend>
-          <label>
-            Email:
-            <input type="text" name="credentials[email]"/>
-          </label>
-          <label>
-            Password:
-            <input type="password" name="credentials[password]"/>
-          </label>
-          <label>
-            Password Confirmation
-            <input type="password" name="credentials[password_confirmation]"/>
-          </label>
-          <input type="submit" name="sign-up-btn" value="Sign up!" class="btn btn-primary">
-        </fieldset>
-      </form>
-      <form id="sign-in" class="auth-form" name="sign-in">
-        <fieldset>
-          <legend>Sign In</legend>
-          <label>
-            Email:
-            <input type="text" name="credentials[email]"/>
-          </label>
-          <label>
-            Password:
-            <input type="password" name="credentials[password]"/>
-          </label>
-          <input type="submit" name="sign-in-btn" value="Sign In" class="btn btn-primary">
-        </fieldset>
-      </form>
-      <form id="change-password" class="auth-form" name="change-password">
-        <fieldset>
-          <legend>Reset Password</legend>
-          <label>
-            Old:
-            <input type="password" name="passwords[old]"/>
-          </label>
-          <label>
-            New:
-            <input type="password" name="passwords[new]"/>
-          </label>
-          <input type="submit" name="change-password-btn" value="Change Password" class="btn btn-primary">
-        </fieldset>
-      </form>
-      <legend>Sign Out</legend>
-      <button id="sign-out" class="btn btn-primary" type="button" name="sign-out">Sign Out</button>
-      <button id="new-game" class="btn btn-primary" type="button" name="button">New Game</button>
-      <button id="get-games" class="btn btn-primary" type="button" name="button">Get Games</button>
+  <nav class="navbar navbar-default">
+    <div class="container-fluid">
+      <!-- Brand and toggle get grouped for better mobile display -->
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <span class="navbar-brand">Tic-Tac-Toe</span>
+      </div>
+
+      <!-- Collect the nav links, forms, and other content for toggling -->
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+
+        <ul class="nav navbar-nav navbar-right">
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Sign Up / Sign In <span class="caret"></span></a>
+            <ul class="dropdown-menu">
+              <li><a href="#" data-toggle="modal" data-target="#sign-up-modal">Sign Up</a></li>
+              <li><a href="#" data-toggle="modal" data-target="#sign-in-modal">Sign In</a></li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+      <!-- /.navbar-collapse -->
     </div>
-    <div class="col-xs-12 col-md-8">
-      <div id="message-bar" class="messages"></div>
-      <div class="clearfix row gameboard">
+    <!-- /.container-fluid -->
+  </nav>
+  <main>
+    <div class="row">
+      <div class="col-xs-12 col-md-4 scoreboard">
+        <form id="change-password" class="auth-form" name="change-password">
+          <fieldset>
+            <legend>Reset Password</legend>
+            <label>
+              Old:
+              <input type="password" name="passwords[old]"/>
+            </label>
+            <label>
+              New:
+              <input type="password" name="passwords[new]"/>
+            </label>
+            <input type="submit" name="change-password-btn" value="Change Password" class="btn btn-primary">
+          </fieldset>
+        </form>
+        <legend>Sign Out</legend>
+        <button id="sign-out" class="btn btn-primary" type="button" name="sign-out">Sign Out</button>
+        <button id="new-game" class="btn btn-primary" type="button" name="button">New Game</button>
+        <button id="get-games" class="btn btn-primary" type="button" name="button">Get Games</button>
+      </div>
+      <div class="col-xs-12 col-md-8">
+        <div id="message-bar" class="messages"></div>
+        <div class="clearfix row gameboard">
+        </div>
       </div>
     </div>
   </main>
+  <!-- Modals -->
+  <div class="modal fade" id="sign-up-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title" id="myModalLabel">Sign Up</h4>
+        </div>
+        <div class="modal-body">
+          <form id="sign-up" class="auth-form" name="sign-up">
+            <fieldset>
+              <div class="form-group">
+                <label>Email</label>
+                <input class="form-control" type="text" name="credentials[email]"/>
+              </div>
+              <div class="form-group">
+                <label>Password</label>
+                <input class="form-control" type="password" name="credentials[password]"/>
+              </div>
+              <div class="form-group">
+                <label>Password Confirmation</label>
+                <input class="form-control" type="password" name="credentials[password_confirmation]"/>
+              </div>
+              <input type="submit" name="sign-up-btn" value="Sign up!" class="btn btn-primary">
+            </fieldset>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="modal fade" id="sign-in-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title" id="myModalLabel">Sign Up</h4>
+        </div>
+        <div class="modal-body">
+          <form id="sign-in" class="auth-form" name="sign-in">
+            <fieldset>
+              <div class="form-group">
+                <label>Email</label>
+                <input class="form-control" type="text" name="credentials[email]"/>
+              </div>
+              <div class="form-group">
+                <label>Password</label>
+                <input class="form-control" type="password" name="credentials[password]"/>
+              </div>
+              <input type="submit" name="sign-in-btn" value="Sign In" class="btn btn-primary">
+            </fieldset>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
 </body>
 
 </html>
