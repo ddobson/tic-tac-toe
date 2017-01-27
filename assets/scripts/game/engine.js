@@ -20,6 +20,10 @@ Game.prototype.newGame = function () {
   return this.board.every((e) => e === null);
 };
 
+Game.prototype.setMove = function (indx) {
+  this.board[indx] = this.currentPlayer;
+};
+
 Game.prototype.getIndexes = function () {
   let indexes = [];
   for (let i = 0; i < this.board.length; i++) {
@@ -38,7 +42,7 @@ Game.prototype.compareArrays = function (playerSet, winSet) {
   });
 };
 
-Game.prototype.checkWinner = function () {
+Game.prototype.checkWinner = function (callback) {
   const indexes = this.getIndexes();
   let winner = null;
 
@@ -56,7 +60,7 @@ Game.prototype.checkWinner = function () {
     }
   }
 
-  return winner;
+  callback(winner);
 };
 
 Game.prototype.switchPlayer = function () {

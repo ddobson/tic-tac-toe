@@ -15,6 +15,24 @@ const validMove = function (cell) {
   return false;
 };
 
+const boardReady = function () {
+  if (!store.user){
+    ui.promptSignIn();
+    return false;
+  } else
+  if (game.gameOver) {
+    return false;
+  } else if (game.newGame()) {
+    api.createGame()
+      .then((response) => {
+        store.games.push(response.game);
+        console.log(store.games);
+      });
+  }
+
+    return true;
+};
+
 const handleWinner = function (gameWinner) {
   if (gameWinner) {
     switch (gameWinner) {
@@ -37,31 +55,25 @@ const handleWinner = function (gameWinner) {
 const makeMove = function (event) {
   event.preventDefault();
 
-  if (!store.user){
-    ui.promptSignIn();
-    return;
-  } else if (game.newGame()) {
-    api.createGame()
-      .then((response) => {
-        store.games.push(response.game);
-        console.log(store.games);
-      });
-  } else if (game.gameOver) {
-    return;
-  }
-
   const $cell = $('#' + this.id);
   const indx = parseInt($cell.attr('id').slice(1));
+  const ready = boardReady();
+  const valid = validMove($cell);
 
-  if (validMove($cell)) {
-    game.board[indx] = game.currentPlayer;
+  // const updateGameServer = api.updateGame;
+  // game.setMove(indx, updateGameServer)  <--use as a callback
+
+  if (ready && valid) {
+    game.setMove(indx);
     ui.drawMove($cell, game.currentPlayer);
-  } else {
+  } else if (!valid) {
     ui.invalidMove();
+    return;
+  } else {
     return;
   }
 
-  handleWinner(game.checkWinner());
+  game.checkWinner(handleWinner);
 
   return game;
 };
