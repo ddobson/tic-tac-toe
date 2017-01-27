@@ -2,7 +2,7 @@
 
 const engine = require('./engine');
 const api = require('../api');
-const ui = require('./game-ui');
+const ui = require('../ui');
 const store = require('../store');
 
 const game = new engine.Game();
