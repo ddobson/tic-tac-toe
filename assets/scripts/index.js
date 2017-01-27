@@ -7,7 +7,7 @@ const gameEvents = require('./game/game-events');
 
 $(() => {
   setAPIOrigin(location, config);
-  $('#reset-game').on('click', gameEvents.newGame);
+  $('#new-game').on('click', gameEvents.newGame);
   $('.auth-form').on('submit', authEvents.onFormSubmit);
   $('#sign-out').on('click', authEvents.handleSignOut);
   $('.gameboard').on('click', '.cell', gameEvents.makeMove);
