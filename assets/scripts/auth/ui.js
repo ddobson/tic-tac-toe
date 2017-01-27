@@ -13,7 +13,11 @@ const signInSucess = function () {
 };
 
 const signOutSucess = function () {
-  console.log('signed out');
+  $('.dropdown-id').html('Sign In');
+
+  $('.user-actions')
+    .html('<li><a href="#" data-toggle="modal" data-target="#sign-in-modal">Sign In</a></li>')
+    .append('<li><a href="#" data-toggle="modal" data-target="#sign-up-modal">Sign Up</a></li>');
 };
 
 const passwordResetSucess = function () {
