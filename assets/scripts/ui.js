@@ -4,8 +4,15 @@ const elements = require('./elements');
 
 const $messageBar = $('#message-bar');
 
-const promptSignIn = function () {
-  console.log('you must sign in');
+const messageConstructor = function (message, htmlClass) {
+  const $message = $(elements.messageContainer);
+
+  $message
+    .addClass('alert alert-dismissible fade in ' + htmlClass)
+    .append(elements.closeButton)
+    .append(message);
+
+  $messageBar.append($message);
 };
 
 const resetMessages = function () {
@@ -34,66 +41,62 @@ const drawMove = function (cell, token) {
   cell.html(token);
 };
 
-const closeButton = '<button type="button" class="close" data-dismiss="alert" aria-label="Close">' +
-                    '<span aria-hidden="true">' + '&times;' + '</span>' +
-                    '</button>';
+const promptSignIn = function () {
+  messageConstructor(elements.messages.promptSignIn, 'alert-danger');
+};
 
 const invalidMove = function () {
-  const $message = $('<div class="message"></div>');
-  $message
-    .addClass('alert alert-warning alert-dismissible fade in')
-    .append(closeButton)
-    .append('<strong>Please choose an unclaimed square</strong>');
-
-  $messageBar.append($message);
+  messageConstructor(elements.messages.chooseUnclaimed, 'alert-warning');
 };
 
 const gameWon = function (player) {
-  const $message = $('<div class="message"></div>');
+  const $message = $(elements.messageContainer);
   $message
     .addClass('alert alert-success alert-dismissible fade in')
-    .append(closeButton)
-    .append('<strong>' + player.toUpperCase() + ' won the game</strong>');
+    .append(elements.closeButton)
+    .append(elements.messages.winnerStart +
+      player.toUpperCase() +
+      elements.messages.winnerEnd);
 
   $messageBar.append($message);
 };
 
 const gameTied = function () {
-  const $message = $('<div class="message"></div>');
-  $message
-    .addClass('alert alert-info alert-dismissible fade in')
-    .append(closeButton)
-    .append('<strong>It\'s a tie!</strong>');
-
-  $messageBar.append($message);
+  messageConstructor(elements.messages.tie, 'alert-info');
 };
 
 const signUpSucess = function () {
-  console.log('sign up successful');
+  messageConstructor(elements.messages.signUp, 'alert-success');
 };
 
 const signInSucess = function () {
   $('.dropdown-id').html('Sign Out');
 
   $('.user-actions')
-    .html('<li><a href="#" id="sign-out">Sign Out</a></li>')
-    .append('<li><a href="#" data-toggle="modal" data-target="#change-password-modal">Change Password</a></li>');
+    .html(elements.signOutLink)
+    .append(elements.changePasswordLink);
+
+  resetMessages();
+  messageConstructor(elements.messages.signIn, 'alert-success');
 };
 
 const signOutSucess = function () {
   $('.dropdown-id').html('Sign In');
 
   $('.user-actions')
-    .html('<li><a href="#" data-toggle="modal" data-target="#sign-in-modal">Sign In</a></li>')
-    .append('<li><a href="#" data-toggle="modal" data-target="#sign-up-modal">Sign Up</a></li>');
+    .html(elements.signInLink)
+    .append(elements.signUpLink);
+
+  resetMessages();
+  messageConstructor(elements.messages.signOut, 'alert-success');
 };
 
 const passwordResetSucess = function () {
-  console.log('password reset successful');
+  messageConstructor(elements.messages.passwordReset, 'alert-success');
 };
 
 const onError = function () {
-  console.log('there was an error');
+  messageConstructor(elements.messages.error, 'alert-danger');
 };
 
 module.exports = {
