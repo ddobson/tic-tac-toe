@@ -1,5 +1,7 @@
 'use strict';
 
+const elements = require('./elements');
+
 const $messageBar = $('#message-bar');
 
 const promptSignIn = function () {
