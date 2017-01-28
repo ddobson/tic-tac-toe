@@ -66,10 +66,16 @@ const gameTied = function () {
 };
 
 const signUpSucess = function () {
+  $('#sign-up-modal').modal('toggle');
   messageConstructor(elements.messages.signUp, 'alert-success');
+  messageConstructor(elements.messages.promptSignIn, 'alert-success');
 };
 
-const signInSucess = function () {
+const signInSucess = function (playerGames) {
+  const $playerInfo = $('.player-info');
+
+  $('#sign-in-modal').modal('toggle');
+
   $('.dropdown-id').html('Sign Out');
 
   $('.user-actions')
@@ -78,6 +84,11 @@ const signInSucess = function () {
 
   resetMessages();
   messageConstructor(elements.messages.signIn, 'alert-success');
+
+  $playerInfo
+    .append(elements.playerEmail + playerGames[0].player_x.email)
+    .append(elements.gamesPlayed + playerGames.length);
+
 };
 
 const signOutSucess = function () {
@@ -87,11 +98,16 @@ const signOutSucess = function () {
     .html(elements.signInLink)
     .append(elements.signUpLink);
 
+  $('.player-info').html('');
+
+  resetGameBoard();
+
   resetMessages();
   messageConstructor(elements.messages.signOut, 'alert-success');
 };
 
 const passwordResetSucess = function () {
+  $('#change-password-modal').modal('toggle');
   messageConstructor(elements.messages.passwordReset, 'alert-success');
 };
 

@@ -5,6 +5,7 @@ const elements = {
   closeButton: '<button type="button" class="close" data-dismiss="alert" aria-label="Close">' +
                   '<span aria-hidden="true">' + '&times;' + '</span>' +
                 '</button>',
+  gamesPlayed: '<h4>Games Played</h4>',
   messages: {
     chooseUnclaimed: '<strong>Please choose an unclaimed square</strong>',
     error: 'Uh oh! Looks like there was an error',
@@ -18,6 +19,7 @@ const elements = {
     winnerEnd: ' won the game</strong>',
   },
   messageContainer: '<div class="message"></div>',
+  playerEmail: '<h4>User: </h4>',
   signInLink: '<li><a href="#" data-toggle="modal" data-target="#sign-in-modal">Sign In</a></li>',
   signOutLink: '<li><a href="#" id="sign-out">Sign Out</a></li>',
   signUpLink: '<li><a href="#" data-toggle="modal" data-target="#sign-up-modal">Sign Up</a></li>',

@@ -25,7 +25,13 @@ const handleSignIn = function (event) {
       store.user = response.user;
       return store.user;
     })
-    .then(ui.signInSucess)
+    .then(api.gamesIndex)
+    .done((response) => {
+      store.games = response.games;
+      console.log(store.games);
+      ui.signInSucess(store.games);
+      return store.games;
+    })
     .catch(ui.onError);
 };
 
@@ -64,6 +70,7 @@ const onFormSubmit = function (event) {
     default:
       console.log('No matching form type');
   }
+
 };
 
 module.exports = {
