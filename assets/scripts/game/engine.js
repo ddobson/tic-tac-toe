@@ -16,10 +16,6 @@ Game.prototype.boardFull = function () {
   return !this.board.includes(null);
 };
 
-// Game.prototype.newGame = function () {
-//   return this.board.every((e) => e === null);
-// };
-
 Game.prototype.setMove = function (indx) {
   this.board[indx] = this.currentPlayer;
 };
@@ -83,6 +79,3 @@ Game.prototype.reset = function () {
 module.exports = {
   Game,
 };
-
-// const tic = require('./assets/scripts/game/game.js');
-// const game = new tic.Game(['x','x',null,'o','o',null,null,null,null]);
