@@ -1,11 +1,13 @@
 'use strict';
 
 const elements = {
-  changePasswordLink: '<li><a href="#" data-toggle="modal" data-target="#change-password-modal">Change Password</a></li>',
+  changePasswordLink: '<li><a href="#" data-toggle="modal" data-target="#change-password-modal">' +
+                        'Change Password' +
+                      '</a></li>',
   closeButton: '<button type="button" class="close" data-dismiss="alert" aria-label="Close">' +
                   '<span aria-hidden="true">' + '&times;' + '</span>' +
                 '</button>',
-  gamesPlayed: '<h4>Games Played</h4>',
+  gamesPlayed: '<h4 id="games-played">Games Played</h4>',
   messages: {
     chooseUnclaimed: '<strong>Please choose an unclaimed square</strong>',
     error: 'Uh oh! Looks like there was an error',

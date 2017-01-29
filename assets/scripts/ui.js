@@ -31,6 +31,10 @@ const resetGameBoard = function () {
 const newGameUi = function () {
   resetMessages();
   resetGameBoard();
+
+  let totalGames = parseInt($('#total-games').html());
+
+  $('#total-games').html((totalGames += 1));
 };
 
 const displayGames = function (games) {
@@ -86,8 +90,8 @@ const signInSucess = function (playerGames) {
   messageConstructor(elements.messages.signIn, 'alert-success');
 
   $playerInfo
-    .append(elements.playerEmail + playerGames[0].player_x.email)
-    .append(elements.gamesPlayed + playerGames.length);
+    .append(elements.playerEmail + '<span>' +playerGames[0].player_x.email + '</span>')
+    .append(elements.gamesPlayed + '<span id="total-games">' + playerGames.length + '</span>');
 
 };
 
