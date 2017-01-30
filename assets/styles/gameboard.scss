@@ -1,14 +1,15 @@
-
-
 .gameboard {
-  border: 1px solid $black;
+  border: 1px solid $white;
+  border-radius: 5px;
   height: 375px;
   margin: 40px auto;
+  padding: 2px;
   width: 375px;
 }
 
 .cell {
-  border: 1px solid $black;
+  border: 1px solid $white;
+  color: $white;
   font-size: 85px;
   height: 33.33%;
   text-align: center;
