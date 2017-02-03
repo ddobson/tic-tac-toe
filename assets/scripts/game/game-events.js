@@ -64,7 +64,7 @@ const makeMove = function (event) {
   if (ready && valid) {
     game.setMove(indx);
     ui.drawMove($cell, game.currentPlayer);
-  } else if (!valid) {
+  } else if (!valid && !game.gameOver) {
     ui.invalidMove();
     return;
   } else {
