@@ -111,6 +111,7 @@ const signOutSucess = function () {
   resetMessages();
   removeNewGameBtn();
   messageConstructor(elements.messages.signOut, 'alert-success');
+  promptSignIn();
 };
 
 const passwordResetSucess = function () {
