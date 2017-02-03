@@ -12,7 +12,9 @@ const handleSignUp = function (event) {
 
   api.signUp(formData)
     .then(ui.signUpSucess)
-    .catch(ui.onError);
+    .catch(() => {
+      ui.onAuthError('sign-up');
+    });
 };
 
 const handleSignIn = function (event) {
@@ -31,7 +33,9 @@ const handleSignIn = function (event) {
       ui.signInSucess(store.games, store.user.email);
       return store.games;
     })
-    .catch(ui.onError);
+    .catch(() => {
+      ui.onAuthError('sign-in');
+    });
 };
 
 const handleSignOut = function () {
@@ -49,7 +53,9 @@ const passwordReset = function (event) {
 
   api.changePassword(formData)
     .then(ui.passwordResetSucess)
-    .catch(ui.onError);
+    .catch(() => {
+      ui.onAuthError('change-password');
+    });
 };
 
 const onFormSubmit = function (event) {

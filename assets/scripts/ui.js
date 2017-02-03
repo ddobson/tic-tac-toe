@@ -15,6 +15,16 @@ const messageConstructor = function (message, htmlClass) {
   $messageBar.append($message);
 };
 
+const authMessageConstructor = function (message, $errorBar) {
+  const $message = $(elements.messageContainer);
+
+  $message
+    .addClass('alert alert-dismissible fade in alert-danger')
+    .append(message);
+
+  $errorBar.append($message);
+};
+
 const resetMessages = function () {
   $messageBar.html('');
 };
@@ -75,6 +85,7 @@ const gameTied = function () {
 
 const signUpSucess = function () {
   $('#sign-up-modal').modal('toggle');
+  $('#sign-up-error-bar').html('');
   resetMessages();
   messageConstructor(elements.messages.signUp, 'alert-success');
   messageConstructor(elements.messages.promptSignIn, 'alert-success');
@@ -92,6 +103,7 @@ const signInSucess = function (playerGames, playerEmail) {
     .html(elements.signOutLink)
     .append(elements.changePasswordLink);
 
+  $('#sign-in-error-bar').html('');
   resetMessages();
   messageConstructor(elements.messages.signIn, 'alert-success');
 
@@ -121,8 +133,32 @@ const signOutSucess = function () {
 
 const passwordResetSucess = function () {
   $('#change-password-modal').modal('toggle');
+  $('#change-password-error-bar').html('');
   messageConstructor(elements.messages.passwordReset, 'alert-success');
   $('#change-password')[0].reset();
+};
+
+const onAuthError = function (type) {
+  const message = elements.messages.error;
+
+  switch(type) {
+    case 'sign-in':
+      authMessageConstructor(
+        message,
+        $('#sign-in-error-bar'));
+        break;
+    case 'sign-up':
+      authMessageConstructor(
+        message,
+        $('#sign-up-error-bar'));
+        break;
+    case 'change-password':
+      authMessageConstructor(
+        message,
+        $('#change-password-error-bar'));
+        break;
+  }
+
 };
 
 const onError = function () {
@@ -134,6 +170,7 @@ module.exports = {
   gameWon,
   gameTied,
   invalidMove,
+  onAuthError,
   onError,
   passwordResetSucess,
   promptSignIn,
