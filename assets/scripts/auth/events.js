@@ -28,7 +28,7 @@ const handleSignIn = function (event) {
     .then(api.gamesIndex)
     .done((response) => {
       store.games = response.games;
-      ui.signInSucess(store.games);
+      ui.signInSucess(store.games, store.user.email);
       return store.games;
     })
     .catch(ui.onError);

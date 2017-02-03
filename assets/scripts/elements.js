@@ -7,6 +7,7 @@ const elements = {
   closeButton: '<button type="button" class="close" data-dismiss="alert" aria-label="Close">' +
                   '<span aria-hidden="true">' + '&times;' + '</span>' +
                 '</button>',
+  dropDownCaret: '<span class="caret"></span>',
   gamesPlayed: '<h4 id="games-played">Games Played</h4>',
   messages: {
     chooseUnclaimed: '<strong>Please choose an unclaimed square</strong>',
@@ -21,7 +22,7 @@ const elements = {
     winnerEnd: ' won the game</strong>',
   },
   messageContainer: '<div class="message"></div>',
-  newGameButton: '<button id="new-game" class="btn btn-primary" type="button" name="button">' +
+  newGameButton: '<button id="new-game" class="btn btn-primary btn-lg" type="button" name="button">' +
                     'New Game' +
                   '</button>',
   playerEmail: '<h4>User: </h4>',

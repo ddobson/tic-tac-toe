@@ -28,6 +28,10 @@ const resetGameBoard = function () {
   }
 };
 
+const removeNewGameBtn = function () {
+  $('#new-game').remove();
+};
+
 const newGameUi = function () {
   resetMessages();
   resetGameBoard();
@@ -71,12 +75,12 @@ const signUpSucess = function () {
   messageConstructor(elements.messages.promptSignIn, 'alert-success');
 };
 
-const signInSucess = function (playerGames) {
+const signInSucess = function (playerGames, playerEmail) {
   const $playerInfo = $('.player-info');
 
   $('#sign-in-modal').modal('toggle');
 
-  $('.dropdown-id').html('Sign Out');
+  $('.dropdown-id').html(playerEmail + ' ' + elements.dropDownCaret);
 
   $('.user-actions')
     .html(elements.signOutLink)
@@ -88,13 +92,11 @@ const signInSucess = function (playerGames) {
   $('.scoreboard').append(elements.newGameButton);
 
   $playerInfo
-    .append(elements.playerEmail + '<span>' + playerGames[0].player_x.email + '</span>')
     .append(elements.gamesPlayed + '<span id="total-games">' + playerGames.length + '</span>');
-
 };
 
 const signOutSucess = function () {
-  $('.dropdown-id').html('Sign In');
+  $('.dropdown-id').html('Sign Up / Sign In ' + elements.dropDownCaret);
 
   $('.user-actions')
     .html(elements.signInLink)
@@ -103,8 +105,8 @@ const signOutSucess = function () {
   $('.player-info').html('');
 
   resetGameBoard();
-
   resetMessages();
+  removeNewGameBtn();
   messageConstructor(elements.messages.signOut, 'alert-success');
 };
 
