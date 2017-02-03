@@ -27,10 +27,7 @@ const boardReady = function () {
 };
 
 const updateGameServer = function (indx, currentGame) {
-  api.updateGame(indx, currentGame)
-    .then((response) => {
-      console.log(response.game);
-    });
+  api.updateGame(indx, currentGame);
 };
 
 const handleWinner = function (gameWinner, indx) {
@@ -69,7 +66,6 @@ const makeMove = function (event) {
     ui.drawMove($cell, game.currentPlayer);
   } else if (!valid) {
     ui.invalidMove();
-    console.log($cell.html());
     return;
   } else {
     return;
@@ -87,15 +83,11 @@ const newGame = function (event) {
   api.createGame()
     .then((response) => {
       store.game = response.game;
-      console.log('create game:', store.game);
     });
 };
 
 const getGames = function () {
-  api.gamesIndex()
-    .then((response) => {
-      ui.displayGames(response.games);
-    });
+  api.gamesIndex();
 };
 
 module.exports = {

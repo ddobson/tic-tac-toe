@@ -28,7 +28,6 @@ const handleSignIn = function (event) {
     .then(api.gamesIndex)
     .done((response) => {
       store.games = response.games;
-      console.log(store.games);
       ui.signInSucess(store.games);
       return store.games;
     })
@@ -68,7 +67,7 @@ const onFormSubmit = function (event) {
       passwordReset(event);
       break;
     default:
-      console.log('No matching form type');
+      console.error('No matching form type');
   }
 
 };

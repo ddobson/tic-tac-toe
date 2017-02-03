@@ -37,10 +37,6 @@ const newGameUi = function () {
   $('#total-games').html((totalGames += 1));
 };
 
-const displayGames = function (games) {
-  console.log(games);
-};
-
 const drawMove = function (cell, token) {
   cell.html(token);
 };
@@ -122,7 +118,6 @@ const onError = function () {
 };
 
 module.exports = {
-  displayGames,
   drawMove,
   gameWon,
   gameTied,
