@@ -19,8 +19,12 @@ const resetMessages = function () {
   $messageBar.html('');
 };
 
-const resetGameBoard = function () {
+const newGameBoard = function () {
   $('.gameboard').html('');
+};
+
+const resetGameBoard = function () {
+  newGameBoard();
 
   for (let i = 0; i < 9; i++) {
     $('.gameboard')
@@ -108,7 +112,7 @@ const signOutSucess = function () {
 
   $('.player-info').html('');
 
-  resetGameBoard();
+  newGameBoard();
   resetMessages();
   removeNewGameBtn();
   messageConstructor(elements.messages.signOut, 'alert-success');
