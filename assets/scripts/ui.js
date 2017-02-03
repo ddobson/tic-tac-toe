@@ -71,6 +71,7 @@ const gameTied = function () {
 
 const signUpSucess = function () {
   $('#sign-up-modal').modal('toggle');
+  resetMessages();
   messageConstructor(elements.messages.signUp, 'alert-success');
   messageConstructor(elements.messages.promptSignIn, 'alert-success');
   $('#sign-up')[0].reset();
