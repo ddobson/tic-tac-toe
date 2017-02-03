@@ -26,10 +26,8 @@
         </button>
         <span class="navbar-brand">Tic-Tac-Toe</span>
       </div>
-
       <!-- Collect the nav links, forms, and other content for toggling -->
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-
         <ul class="nav navbar-nav navbar-right">
           <li class="dropdown">
             <a href="#" class="dropdown-id dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Sign Up / Sign In <span class="caret"></span></a>
@@ -46,8 +44,12 @@
   <main>
     <div class="row">
       <div class="col-xs-12 col-md-5 scoreboard">
-        <div id="message-bar" class="messages"></div>
-        <button id="new-game" class="btn btn-primary" type="button" name="button">New Game</button>
+        <div id="message-bar" class="messages">
+          <div class="message alert alert-dismissible fade in alert-info">
+            <strong>Welcome! Please sign up or sign in to play.</strong>
+          </div>
+        </div>
+        <!-- <button id="new-game" class="btn btn-primary" type="button" name="button">New Game</button> -->
         <div class="player-info"></div>
       </div>
       <div class="col-xs-12 col-md-7">

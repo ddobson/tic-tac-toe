@@ -89,8 +89,10 @@ const signInSucess = function (playerGames) {
   resetMessages();
   messageConstructor(elements.messages.signIn, 'alert-success');
 
+  $('.scoreboard').append(elements.newGameButton);
+
   $playerInfo
-    .append(elements.playerEmail + '<span>' +playerGames[0].player_x.email + '</span>')
+    .append(elements.playerEmail + '<span>' + playerGames[0].player_x.email + '</span>')
     .append(elements.gamesPlayed + '<span id="total-games">' + playerGames.length + '</span>');
 
 };

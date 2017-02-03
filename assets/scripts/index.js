@@ -10,7 +10,7 @@ $(() => {
   $('.auth-form').on('submit', authEvents.onFormSubmit);
   $('.user-actions').on('click', '#sign-out', authEvents.handleSignOut);
   $('#get-games').on('click', gameEvents.getGames);
-  $('#new-game').on('click', gameEvents.newGame);
+  $('.scoreboard').on('click', '#new-game', gameEvents.newGame);
   $('.gameboard').on('click', '.cell', gameEvents.makeMove);
 });
 

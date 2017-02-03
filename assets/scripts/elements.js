@@ -21,6 +21,9 @@ const elements = {
     winnerEnd: ' won the game</strong>',
   },
   messageContainer: '<div class="message"></div>',
+  newGameButton: '<button id="new-game" class="btn btn-primary" type="button" name="button">' +
+                    'New Game' +
+                  '</button>',
   playerEmail: '<h4>User: </h4>',
   signInLink: '<li><a href="#" data-toggle="modal" data-target="#sign-in-modal">Sign In</a></li>',
   signOutLink: '<li><a href="#" id="sign-out">Sign Out</a></li>',

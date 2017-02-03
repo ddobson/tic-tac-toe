@@ -8,6 +8,7 @@ Demo: https://ddobson.github.io/tic-tac-toe/
 - **Javascript** for engine and event handling
 - **jQuery** for DOM manipulation, event listening and ajax
 - **Bootstrap** for HTML and CSS
+- **Git** for version control
 
 ## Building the Game
 
