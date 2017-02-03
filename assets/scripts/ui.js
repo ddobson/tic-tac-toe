@@ -16,13 +16,16 @@ const messageConstructor = function (message, htmlClass) {
 };
 
 const authMessageConstructor = function (message, $errorBar) {
-  const $message = $(elements.messageContainer);
 
-  $message
-    .addClass('alert alert-dismissible fade in alert-danger')
-    .append(message);
+  if ($errorBar.html() === '') {
+    const $message = $(elements.messageContainer);
 
-  $errorBar.append($message);
+    $message
+      .addClass('alert alert-dismissible fade in alert-danger')
+      .append(message);
+
+    $errorBar.append($message);
+  }
 };
 
 const resetMessages = function () {
@@ -134,6 +137,7 @@ const signOutSucess = function () {
 const passwordResetSucess = function () {
   $('#change-password-modal').modal('toggle');
   $('#change-password-error-bar').html('');
+  resetMessages();
   messageConstructor(elements.messages.passwordReset, 'alert-success');
   $('#change-password')[0].reset();
 };
