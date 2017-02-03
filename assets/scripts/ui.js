@@ -73,6 +73,7 @@ const signUpSucess = function () {
   $('#sign-up-modal').modal('toggle');
   messageConstructor(elements.messages.signUp, 'alert-success');
   messageConstructor(elements.messages.promptSignIn, 'alert-success');
+  $('#sign-up')[0].reset();
 };
 
 const signInSucess = function (playerGames, playerEmail) {
@@ -93,6 +94,8 @@ const signInSucess = function (playerGames, playerEmail) {
 
   $playerInfo
     .append(elements.gamesPlayed + '<span id="total-games">' + playerGames.length + '</span>');
+
+  $('#sign-in')[0].reset();
 };
 
 const signOutSucess = function () {
@@ -113,6 +116,7 @@ const signOutSucess = function () {
 const passwordResetSucess = function () {
   $('#change-password-modal').modal('toggle');
   messageConstructor(elements.messages.passwordReset, 'alert-success');
+  $('#change-password')[0].reset();
 };
 
 const onError = function () {
