@@ -143,7 +143,7 @@ const passwordResetSucess = function () {
 };
 
 const onAuthError = function (type) {
-  const message = elements.messages.error;
+  const message = elements.messages.authError;
 
   switch(type) {
     case 'sign-in':

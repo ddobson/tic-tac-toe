@@ -10,6 +10,8 @@ const elements = {
   dropDownCaret: '<span class="caret"></span>',
   gamesPlayed: '<h4 id="games-played">Games Played</h4>',
   messages: {
+    authError: 'Uh oh! There was an error with the infomation you provided. ' +
+               'Please verify the information in your submission.',
     chooseUnclaimed: '<strong>Please choose an unclaimed square</strong>',
     error: 'Uh oh! Looks like there was an error',
     passwordReset: '<strong>Password reset successful!</strong>',
